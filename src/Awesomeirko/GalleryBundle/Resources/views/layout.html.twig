@@ -1,0 +1,25 @@
+{% extends '::base.html.twig'%}
+
+{% block stylesheets %}
+{% stylesheets '@AwesomeirkoGalleryBundle/Resources/public/css/*'  %}
+<link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+        {{ block('gallery_content') }}
+
+
+
+{% endblock %}
+
+
+
+{% block javascripts %}
+{% javascripts '@AwesomeirkoGalleryBundle/Resources/public/js/*' %}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}

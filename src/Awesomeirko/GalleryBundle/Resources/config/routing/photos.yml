@@ -1,0 +1,30 @@
+photos:
+    pattern:  /photos/
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:index" }
+
+photos_show:
+    pattern:  /photos/{id}/show
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:show" }
+
+photos_new:
+    pattern:  /photos/new
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:new" }
+
+photos_create:
+    pattern:  /photos/create
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:create" }
+    requirements: { _method: post }
+
+photos_edit:
+    pattern:  /photos/{id}/edit
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:edit" }
+
+photos_update:
+    pattern:  /photos/{id}/update
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:update" }
+    requirements: { _method: post|put }
+
+photos_delete:
+    pattern:  /photos/{id}/delete
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:delete" }
+    requirements: { _method: post|delete }

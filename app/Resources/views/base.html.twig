@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <nav class="uk-navbar" id="menu">
+
+            <a class="uk-navbar-brand" href="{{path('albums')}}"> 
+                <img src="{{asset('bundles/awesomeirkogallery/images/icon.png')}}"> 
+                Image gallery
+            </a>
+{% if is_granted("ROLE_USER") %}
+
+            <ul class="uk-navbar-nav">
+                <li class="uk-parent uk-active" data-uk-dropdown="">
+                    <a href="#"><i class="uk-icon-home"></i> Admin</a>
+
+                    <div class="uk-dropdown uk-dropdown-navbar" style="">
+                        <ul class="uk-nav uk-nav-navbar">
+                            <li><a href="{{ path('albums_new') }}">New album</a></li>
+                            {% if app.request.get('_route') == 'photos' %}
+                               <li> <a href="{{ path('photos_new', {'id': app.request.get('id') }) }}" >New photo</a></li>
+{% endif %}
+                            </ul>
+                        </div>
+
+                    </li>
+
+                </ul>
+{% endif %}
+
+                <div class="uk-navbar-content uk-navbar-flip  uk-hidden-small">
+                {% if app.user %}
+                        <div class="uk-button-group">
+                            <button class="uk-button uk-button-primary">
+                                <i class="uk-icon-user"></i>
+                                {{ app.user.username }}
+
+                            </button>
+                            <div data-uk-dropdown="">
+                                <a href="#" class="uk-button uk-button-primary">
+                                    <i class="uk-icon-caret-down"></i>
+                                </a>
+                                <div class="uk-dropdown uk-dropdown-small">
+                                    <ul class="uk-nav uk-nav-dropdown">
+                                        <li><a href="{{ path('user_logout') }}">Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% else %}
+
+                        <a href="{{path('user_login')}}" class="uk-button uk-button-primary ">
+                            Login
+                        </a>
+                    {% endif %}
+                    </div>
+
+                </nav>
+
+
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+            </body>
+        </html>

@@ -1,0 +1,8 @@
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    
+user_logout:
+    pattern:   /logout
+
+user_login:
+    pattern:   /login

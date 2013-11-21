@@ -1,0 +1,67 @@
+{% extends "AwesomeirkoGalleryBundle::layout.html.twig" %}
+
+{% block gallery_content %}
+
+<div class="uk-panel uk-panel-box  uk-width-1-2 uk-container-center">
+    <h3 class="uk-panel-title">
+        Create a photo
+    </h3>
+
+    <form action="{{ path('photos_create') }}" method="post" {{ form_enctype(form) }} class="uk-form uk-form-stacked">
+                    {{ form_widget(form.albumId)}}
+
+          {{form_widget(form._token)}}
+            
+        <div class="uk-form-row">
+        {{ form_errors(form) }}
+            </div>
+        <div class="uk-form-row">
+        {{ form_label(form.name) }}
+                <div class="uk-form-controls">
+            {{ form_widget(form.name, { 'attr': {'class': 'uk-width-1-1'} }) }}
+                    </div>
+                </div>
+                <div class="uk-form-row">
+        {{ form_label(form.description) }}
+                        <div class="uk-form-controls">
+            {{ form_widget(form.description, { 'attr': {'class': 'uk-width-1-1'} }) }}
+                            </div>
+                        </div>
+                        <div class="uk-form-row">
+        {{ form_label(form.isAlbumCover) }}
+                                <div class="uk-form-controls">
+            {{ form_widget(form.isAlbumCover, { 'attr': {'class': 'uk-width-1-1'} }) }}
+                                    </div>
+                                </div>
+                                        <div class="uk-form-row">
+        {{ form_label(form.file) }}
+                                                <div class="uk-form-controls">
+                                                            {{ form_widget(form.file, { 'attr': {'class': 'uk-width-1-1'} }) }}
+                                                    </div>
+                                                </div>
+                                                <div class="uk-form-row">
+
+                                                    <div class="uk-form-controls">
+                                                        <div class="uk-grid">
+                                                            <div class="uk-width-1-2">
+                                                                <a href="{{ path('photos', {'id':entity.albumId}) }}" class="uk-button uk-button-link">
+                                                                    Back to the list
+                                                                </a>
+                                                            </div>
+                                                            <div class="uk-width-1-2 uk-text-right">
+                                                                <button type="submit" class="uk-button uk-button-primary">Create</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </form>
+
+                                        </div>
+
+
+
+
+
+{% endblock %}

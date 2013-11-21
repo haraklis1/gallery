@@ -1,0 +1,8 @@
+awesomeirko_gallery_user:
+    resource: "@AwesomeirkoGalleryUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+awesomeirko_gallery:
+    resource: "@AwesomeirkoGalleryBundle/Resources/config/routing.yml"
+    prefix:   /
+

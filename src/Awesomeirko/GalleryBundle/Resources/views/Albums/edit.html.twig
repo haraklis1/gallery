@@ -1,0 +1,98 @@
+{% extends "AwesomeirkoGalleryBundle::layout.html.twig" %}
+
+{% block gallery_content %}
+
+<div class="uk-panel uk-panel-box  uk-width-1-2 uk-container-center">
+    <h3 class="uk-panel-title">
+        Edit an album
+    </h3>
+
+    <form action="{{ path('albums_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form)}} class="uk-form uk-form-stacked">
+        <input type="hidden" name="_method" value="PUT" />
+        <div class="uk-form-row">
+        {{ form_label(edit_form.name) }}
+                <div class="uk-form-controls">
+            {{ form_widget(edit_form.name, { 'attr': {'class': 'uk-width-1-1'} }) }}
+                    </div>
+                </div>
+                <div class="uk-form-row">
+        {{ form_label(edit_form.shortDescription) }}
+                        <div class="uk-form-controls">
+            {{ form_widget(edit_form.shortDescription, { 'attr': {'class': 'uk-width-1-1'} }) }}
+                            </div>
+                        </div>
+                        <div class="uk-form-row">
+        {{ form_label(edit_form.longDescription) }}
+                                <div class="uk-form-controls">
+            {{ form_widget(edit_form.longDescription, { 'attr': {'class': 'uk-width-1-1'} }) }}
+                                    </div>
+                                </div>
+                                <div class="uk-form-row">
+        {{ form_label(edit_form.location) }}
+                                        <div class="uk-form-controls">
+            {{ form_widget(edit_form.location, { 'attr': {'class': 'uk-width-1-1'} }) }}
+                                            </div>
+                                        </div>
+                                        <div class="uk-form-row">
+        {{ form_label(edit_form.dateCreated) }}
+                                                <div class="uk-form-controls">
+                                                            {{ form_widget(edit_form.dateCreated, { 'attr': {'class': 'uk-width-1-1'} }) }}
+                                                    </div>
+                                                </div>
+                                                <div class="uk-form-row">
+
+                                                    <div class="uk-form-controls">
+                                                        <div class="uk-grid">
+                                                            <div class="uk-width-1-2">
+                                                                <a href="{{ path('albums') }}" class="uk-button uk-button-link">
+                                                                    Back to the list
+                                                                </a>
+                                                            </div>
+                                                            <div class="uk-width-1-2 uk-text-right">
+                                                                <button type="submit" class="uk-button uk-button-primary">Edit</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </form>
+
+                                        </div>
+
+
+
+
+
+{% endblock %}
+
+
+
+{#{% extends '::base.html.twig' %}
+
+{% block body -%}
+                                        <h1>Albums edit</h1>
+
+                                        <form action="{{ path('albums_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+                                            <input type="hidden" name="_method" value="PUT" />
+        {{ form_widget(edit_form) }}
+                                            <p>
+                                                <button type="submit">Edit</button>
+                                            </p>
+                                        </form>
+
+                                        <ul class="record_actions">
+                                            <li>
+                                                <a href="{{ path('albums') }}">
+                                                    Back to the list
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <form action="{{ path('albums_delete', { 'id': entity.id }) }}" method="post">
+                                                    <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+                                                    <button type="submit">Delete</button>
+                                                </form>
+                                            </li>
+                                        </ul>
+{% endblock %}#}

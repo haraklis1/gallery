@@ -1,0 +1,7 @@
+parameters:
+#    awesomeirko_gallery_user.example.class: Awesomeirko\GalleryUserBundle\Example
+
+services:
+#    awesomeirko_gallery_user.example:
+#        class: %awesomeirko_gallery_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,83 @@
+awesomeirko_gallery_homepage:
+    pattern:  /home
+    defaults: { _controller: AwesomeirkoGalleryBundle:Default:index }
+
+
+#awesomeirko_gallery_album_index:
+#    pattern: /
+#    defaults: { _controller: AwesomeirkoGalleryBundle:Album:Index }
+
+awesomeirko_gallery_album_edit:
+    pattern: /Admin/Album/Edit/{id}
+    defaults: { _controller: AwesomeirkoGalleryBundle:Album:Edit }
+
+awesomeirko_gallery_album_create:
+    pattern: /Admin/Album/Create
+    defaults: { _controller: AwesomeirkoGalleryBundle:Album:Create }
+
+awesomeirko_gallery_album_delete:
+    pattern: /Admin/Album/Delete/{id}
+    defaults: { _controller: AwesomeirkoGalleryBundle:Album:Delete }
+
+albums:
+    pattern:  /
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Albums:index" }
+
+albums_show:
+    pattern:  /Albums/{id}
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Albums:show" }
+
+albums_new:
+    pattern:  /Admin/Albums/New
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Albums:new" }
+
+albums_create:
+    pattern:  /Admin/Albums/Create
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Albums:create" }
+    requirements: { _method: post }
+
+albums_edit:
+    pattern:  /Admin/Albums/Edit/{id}
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Albums:edit" }
+
+albums_update:
+    pattern:  /Admin/Albums/Update/{id}
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Albums:update" }
+    requirements: { _method: post|put }
+
+albums_delete:
+    pattern:  /Admin/Albums/Delete/{id}
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Albums:delete" }
+    requirements: { _method: post|delete }
+
+
+photos:
+    pattern:  /Photos/{id}
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:index" }
+
+photos_show:
+    pattern:  /Admin/Photos/Show/{id}
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:show" }
+
+photos_new:
+    pattern:  /Admin/Photos/New/{id}
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:new" }
+
+photos_create:
+    pattern:  /Admin/Photos/Create
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:create" }
+    requirements: { _method: post }
+
+photos_edit:
+    pattern:  /Admin/Photos/Edit/{id}
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:edit" }
+
+photos_update:
+    pattern:  /Admin/Photos/Update/{id}
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:update" }
+    requirements: { _method: post|put }
+
+photos_delete:
+    pattern:  /Admin/Photos/Delete/{id}
+    defaults: { _controller: "AwesomeirkoGalleryBundle:Photos:delete" }
+    requirements: { _method: post|delete }

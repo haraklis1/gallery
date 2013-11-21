@@ -1,0 +1,17 @@
+{% extends "AwesomeirkoGalleryBundle::layout.html.twig" %}
+
+{% block gallery_content %}
+
+{% for entity in entities %}
+
+<div class="uk-thumbnail uk-thumbnail-medium">
+    <img src="../../uploads/photos/{{ entity.path }}" alt="">
+    <div class="uk-thumbnail-caption">
+        {{ entity.name }}
+        </div>
+    </div>
+
+{% endfor %}
+
+
+{% endblock %}

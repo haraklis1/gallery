@@ -1,0 +1,75 @@
+/* 
+    Document   : style
+    Created on : 2013-10-19, 16.53.44
+    Author     : Adomas
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#loginpanel { 
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+#menu {
+    background:
+        linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+        linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;
+
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+#menu .uk-navbar-brand {
+    color: #fff;
+}
+
+#menu .uk-navbar-brand img{
+    height: 40px;
+}
+
+div#albums-thumbnails div.album-thumbnail{
+    float:left;
+    position:relative;
+    overflow: hidden;
+}
+
+div.album-thumbnail div.album-thumbnail-photo{
+    position: relative;
+    z-index: 2;
+    /*top: -10px;*/
+}
+
+div.album-thumbnail-info{
+    position:absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 1;
+}
+
+@media only screen and (min-width: 768px) {
+    /* tablets and desktop */
+    #loginpanel { 
+        width:400px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    /* phones */
+}
+
+.clearfix:after{
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    font-size: 0;
+}

@@ -1,0 +1,20 @@
+{% extends "AwesomeirkoGalleryBundle::layout.html.twig" %}
+
+{% block gallery_content %}
+
+<div id="albums-thumbnails">
+    {% for entity in entities %}
+        <div class="album-thumbnail" data-width="{{ entity.imageWidth }}" data-height="{{ entity.imageHeight }}">
+            <div class="album-thumbnail-photo">
+                <a href="{{ path('photos', { 'id': entity[0].id }) }}">
+                    <img src="../uploads/photos/{{ entity.path }}" alt="">
+                </a>
+            </div>
+            <div class="album-thumbnail-info">
+                {{ entity[0].name }}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
