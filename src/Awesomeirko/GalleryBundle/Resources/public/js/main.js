@@ -40,13 +40,13 @@
 
     AlbumsThumbnails.prototype.recalculate = function() {
         this.element.find("div.clearfix").remove();
-        
+
         var children = this.element.children(".album-thumbnail"),
                 windowSize = this._windowSize(),
                 offset = 0,
                 ratio = 0,
                 curH = 0;
-        while (offset < this.thumbnails.length-1) {
+        while (offset < this.thumbnails.length - 1) {
             ratio = 0;
             for (var i = offset; i < this.thumbnails.length; i++) {
                 ratio += this.thumbnails[i].ratio;
@@ -57,31 +57,57 @@
                         i--;
                         curH = (windowSize.w - (i - offset + 1) * this.option("margin")) / ratio;
                     }
-                    if(i == this.thumbnails.length - 1 && curH > this.option("max")){
+                    if (i == this.thumbnails.length - 1 && curH > this.option("max")) {
                         curH = this.option("init");
                     }
                     curH = Math.floor(curH);
                     for (var ii = offset; ii <= i; ii++) {
                         this.thumbnails[ii].width = Math.floor(this.thumbnails[ii].ratio * curH);
-                        if(isNaN(this.thumbnails[ii].width))
+                        if (isNaN(this.thumbnails[ii].width))
                             alert(this.thumbnails[ii].ratio + " * " + curH);
                         $(children[ii]).find(".album-thumbnail-photo").find("img").attr("width", this.thumbnails[ii].width).attr("height", curH);
-                        $(children[ii]).css("margin-left",0).css("margin-right",this.option("margin")).css("margin-bottom",this.option("margin"));
+                        $(children[ii]).css("margin-left", 0).css("margin-right", this.option("margin")).css("margin-bottom", this.option("margin"));
                     }
-                    $(children[offset]).css("margin-left",this.option("margin"));
+                    $(children[offset]).css("margin-left", this.option("margin"));
                     $(children[i]).after("<div class=\"clearfix\"><div>");
                     offset = i + 1;
                     break;
                 }
             }
         }
-        
+
         console.log(this.thumbnails);
     };
     $.widget("awesomeirko.albumsThumbnails", AlbumsThumbnails.prototype);
 
+    function LikeButton() {
+    }
+    LikeButton.prototype.options = {
+    };
+    LikeButton.prototype._create = function() {
+        this._on(this.element, {
+            //        "click": "start"
+        });
+        this._init();
+    };
+
+    LikeButton.prototype._init = function() {
+        var el = this.element;
+        $.ajax({
+            url: this.element.attr("href"),
+            type: "POST",
+            dataType: "JSON",
+            complete: function(data){
+                el.text(data.count);
+            }
+        });
+    };
+
+    $.widget("awesomeirko.likeButton", LikeButton.prototype);
+
 // http://api.jqueryui.com/jQuery.widget
     $(document).ready(function() {
         $("#albums-thumbnails").albumsThumbnails();
+        $(".like-button").likeButton();
     });
 })(jQuery);
